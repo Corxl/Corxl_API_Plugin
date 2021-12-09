@@ -1,0 +1,2 @@
+# Disabled end portal frame activation to prevent people from going to the end too early
+disable-end-portal-activation: true

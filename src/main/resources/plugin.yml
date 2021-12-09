@@ -1,0 +1,25 @@
+name: Corxl_API
+version: '${project.version}'
+main: me.corxl.corxl_api.Corxl_API
+api-version: 1.18
+authors: [ Corxl ]
+description: General API for nSmatic's SMP server
+commands:
+  cxl:
+    permission: cxl.use
+    permission-message: §l§2[§3CorxlAPI§2]§r §o§cYou do not have permission!
+
+permissions:
+  cxl.reload:
+    description: reload permission
+
+  cxl.bypass:
+    description: Bypasses the end portal restriction
+
+  cxl.toggleportal:
+    description: Toggle portal command
+
+  cxl.*:
+    children:
+      cxl.reload: true
+
