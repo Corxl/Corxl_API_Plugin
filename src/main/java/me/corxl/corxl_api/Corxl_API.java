@@ -79,10 +79,11 @@ public final class Corxl_API extends JavaPlugin {
         NamespacedKey key = new NamespacedKey(this, "shulker_box_recipe");
         ItemStack item = new ItemStack(Material.SHULKER_BOX, 1);
         ShapedRecipe recipe = new ShapedRecipe(key, item);
-        recipe.shape("D", "E", "D");
+        recipe.shape(" D ", "RER", " D ");
 
         recipe.setIngredient('D', Material.DIAMOND_BLOCK);
-        recipe.setIngredient('e', Material.ENDER_CHEST);
+        recipe.setIngredient('R', Material.REDSTONE_BLOCK);
+        recipe.setIngredient('E', Material.ENDER_CHEST);
 
         return recipe;
     }
