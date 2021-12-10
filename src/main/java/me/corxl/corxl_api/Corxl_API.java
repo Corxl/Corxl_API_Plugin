@@ -2,7 +2,7 @@ package me.corxl.corxl_api;
 
 import me.corxl.corxl_api.Commands.Commands;
 import me.corxl.corxl_api.Commands.TabCompletion;
-import me.corxl.corxl_api.ConfigHandler.ConfigHandler;
+import me.corxl.corxl_api.Listeners.DeathListener;
 import me.corxl.corxl_api.Listeners.EndPoralListener;
 import me.corxl.corxl_api.Listeners.ItemEnchantListener;
 import org.bukkit.Bukkit;
@@ -25,6 +25,7 @@ public final class Corxl_API extends JavaPlugin {
         this.saveDefaultConfig();
         Bukkit.addRecipe(spongeRecipe());
         Bukkit.addRecipe(prismarineShardRecipe());
+        this.getServer().getPluginManager().registerEvents(new DeathListener(), this);
         this.getServer().getPluginManager().registerEvents(new EndPoralListener(), this);
         this.getServer().getPluginManager().registerEvents(new ItemEnchantListener(), this);
         this.getCommand("cxl").setExecutor(new Commands());
