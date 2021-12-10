@@ -25,7 +25,7 @@ public final class Corxl_API extends JavaPlugin {
         Bukkit.addRecipe(spongeRecipe());
         Bukkit.addRecipe(prismarineShardRecipe());
         System.out.println("Change commit1");
-        System.out.println("Change 2");
+        System.out.println("Change commit3");
         this.getServer().getPluginManager().registerEvents(new EndPoralListener(), this);
         this.getServer().getPluginManager().registerEvents(new ItemEnchantListener(), this);
         this.getCommand("cxl").setExecutor(new Commands());
