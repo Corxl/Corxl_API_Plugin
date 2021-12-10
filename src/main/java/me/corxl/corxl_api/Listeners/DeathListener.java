@@ -10,10 +10,18 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 public class DeathListener implements Listener {
     @EventHandler
     public void onDeath(PlayerDeathEvent e) {
+
         for (Player playerList : Bukkit.getServer().getOnlinePlayers()){
             for (Player players : Bukkit.getServer().getOnlinePlayers()){
                 if (!players.equals(e.getEntity())) {
-                    playerList.sendMessage(players.getDisplayName() + ChatColor.GRAY + " :: " + ChatColor.RESET + "L");
+                    new Thread(()->{
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException ex) {
+                            ex.printStackTrace();
+                        }
+                        playerList.sendMessage(players.getDisplayName() + ChatColor.GRAY + " :: " + ChatColor.RESET + "L");
+                    }).start();
                 }
             }
         }

@@ -25,6 +25,8 @@ public final class Corxl_API extends JavaPlugin {
         this.saveDefaultConfig();
         Bukkit.addRecipe(spongeRecipe());
         Bukkit.addRecipe(prismarineShardRecipe());
+        Bukkit.addRecipe(gildedBlackStone());
+        Bukkit.addRecipe(shulkerBoxRecipe());
         this.getServer().getPluginManager().registerEvents(new DeathListener(), this);
         this.getServer().getPluginManager().registerEvents(new EndPoralListener(), this);
         this.getServer().getPluginManager().registerEvents(new ItemEnchantListener(), this);
@@ -57,6 +59,30 @@ public final class Corxl_API extends JavaPlugin {
         recipe.shape("P");
 
         recipe.setIngredient('P', Material.PRISMARINE);
+
+        return recipe;
+    }
+
+    private ShapedRecipe gildedBlackStone() {
+        NamespacedKey key = new NamespacedKey(this, "gilded_blackstone_recipe");
+        ItemStack item = new ItemStack(Material.GILDED_BLACKSTONE, 3);
+        ShapedRecipe recipe = new ShapedRecipe(key, item);
+        recipe.shape("GGG", "BBB", "GGG");
+
+        recipe.setIngredient('G', Material.GOLD_NUGGET);
+        recipe.setIngredient('B', Material.BLACKSTONE);
+
+        return recipe;
+    }
+
+    private ShapedRecipe shulkerBoxRecipe() {
+        NamespacedKey key = new NamespacedKey(this, "shulker_box_recipe");
+        ItemStack item = new ItemStack(Material.SHULKER_BOX, 1);
+        ShapedRecipe recipe = new ShapedRecipe(key, item);
+        recipe.shape("D", "E", "D");
+
+        recipe.setIngredient('D', Material.DIAMOND_BLOCK);
+        recipe.setIngredient('e', Material.ENDER_CHEST);
 
         return recipe;
     }
