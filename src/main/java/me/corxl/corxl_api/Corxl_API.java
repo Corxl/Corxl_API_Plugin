@@ -39,6 +39,9 @@ public final class Corxl_API extends JavaPlugin {
         // Plugin shutdown logic
     }
 
+    public static Corxl_API getPlugin() {
+        return plugin;
+    }
 
     private ShapedRecipe spongeRecipe() {
         NamespacedKey key = new NamespacedKey(this, "sponge_recipe");

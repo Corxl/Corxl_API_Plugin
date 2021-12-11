@@ -8,8 +8,6 @@ import org.bukkit.event.enchantment.EnchantItemEvent;
 import java.util.Random;
 
 public class ItemEnchantListener implements Listener {
-
-
     @EventHandler
     public void onItemEnchant(EnchantItemEvent e) {
         if (e.getEnchantsToAdd().containsKey(Enchantment.ARROW_INFINITE)) return;
