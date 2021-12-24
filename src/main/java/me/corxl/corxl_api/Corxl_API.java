@@ -5,6 +5,7 @@ import me.corxl.corxl_api.Commands.TabCompletion;
 import me.corxl.corxl_api.Listeners.DeathListener;
 import me.corxl.corxl_api.Listeners.EndPoralListener;
 import me.corxl.corxl_api.Listeners.ItemEnchantListener;
+import me.corxl.corxl_api.Listeners.WitherSkeletonDeathListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -27,9 +28,12 @@ public final class Corxl_API extends JavaPlugin {
         Bukkit.addRecipe(prismarineShardRecipe());
         Bukkit.addRecipe(gildedBlackStone());
         Bukkit.addRecipe(shulkerBoxRecipe());
+        Bukkit.addRecipe(saddleRecipe());
+        Bukkit.addRecipe(nameTagRecipe());
         this.getServer().getPluginManager().registerEvents(new DeathListener(), this);
         this.getServer().getPluginManager().registerEvents(new EndPoralListener(), this);
         this.getServer().getPluginManager().registerEvents(new ItemEnchantListener(), this);
+        this.getServer().getPluginManager().registerEvents(new WitherSkeletonDeathListener(), this);
         this.getCommand("cxl").setExecutor(new Commands());
         this.getCommand("cxl").setTabCompleter(new TabCompletion());
     }
@@ -87,6 +91,30 @@ public final class Corxl_API extends JavaPlugin {
         recipe.setIngredient('D', Material.DIAMOND_BLOCK);
         recipe.setIngredient('R', Material.REDSTONE_BLOCK);
         recipe.setIngredient('E', Material.ENDER_CHEST);
+
+        return recipe;
+    }
+
+    private ShapedRecipe saddleRecipe() {
+        NamespacedKey key = new NamespacedKey(this, "saddle_recipe");
+        ItemStack saddle = new ItemStack(Material.SADDLE, 1);
+        ShapedRecipe recipe = new ShapedRecipe(key, saddle);
+        recipe.shape(" L ", "LIL", "L L");
+
+        recipe.setIngredient('L', Material.LEATHER);
+        recipe.setIngredient('I', Material.IRON_INGOT);
+
+        return recipe;
+    }
+
+    private ShapedRecipe nameTagRecipe() {
+        NamespacedKey key = new NamespacedKey(this, "nametag_recipe");
+        ItemStack nameTag = new ItemStack(Material.NAME_TAG, 1);
+        ShapedRecipe recipe = new ShapedRecipe(key, nameTag);
+        recipe.shape("  S", " P ", "P  ");
+
+        recipe.setIngredient('S', Material.STRING);
+        recipe.setIngredient('P', Material.PAPER);
 
         return recipe;
     }
