@@ -21,7 +21,7 @@ public class DeathListener implements Listener {
         new Thread(()->{
             try {
                 Corxl_API plugin = Corxl_API.getPlugin();
-                File file = new File(plugin.getDataFolder().getAbsolutePath()+"\\DeathLog.txt");
+                File file = new File(plugin.getDataFolder().getAbsolutePath() + File.separator +  "DeathLog.txt");
                 if (!file.exists()) {
                     file.createNewFile();
                 }

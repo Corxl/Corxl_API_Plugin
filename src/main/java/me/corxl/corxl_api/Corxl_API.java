@@ -103,7 +103,6 @@ public final class Corxl_API extends JavaPlugin {
 
         recipe.setIngredient('L', Material.LEATHER);
         recipe.setIngredient('I', Material.IRON_INGOT);
-
         return recipe;
     }
 
