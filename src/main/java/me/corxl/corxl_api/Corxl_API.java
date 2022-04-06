@@ -2,10 +2,7 @@ package me.corxl.corxl_api;
 
 import me.corxl.corxl_api.Commands.Commands;
 import me.corxl.corxl_api.Commands.TabCompletion;
-import me.corxl.corxl_api.Listeners.DeathListener;
-import me.corxl.corxl_api.Listeners.EndPoralListener;
-import me.corxl.corxl_api.Listeners.ItemEnchantListener;
-import me.corxl.corxl_api.Listeners.WitherSkeletonDeathListener;
+import me.corxl.corxl_api.Listeners.*;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -34,6 +31,7 @@ public final class Corxl_API extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new EndPoralListener(), this);
         this.getServer().getPluginManager().registerEvents(new ItemEnchantListener(), this);
         this.getServer().getPluginManager().registerEvents(new WitherSkeletonDeathListener(), this);
+        this.getServer().getPluginManager().registerEvents(new EntitySpawnListener(), this);
         this.getCommand("cxl").setExecutor(new Commands());
         this.getCommand("cxl").setTabCompleter(new TabCompletion());
     }
